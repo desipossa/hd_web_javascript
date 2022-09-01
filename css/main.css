@@ -8,9 +8,10 @@
 
 /* all */
 
-.swiper-wrapper,
-.swiper-slide {
-    transition-delay: 700;
+/* 슬라이드 깜박임 없애기 */
+.main_slider .swiper-wrapper,
+.main_slider .swiper-slide {
+    transition-duration: 0.5ms;
 }
 
 body {
