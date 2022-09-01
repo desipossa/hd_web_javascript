@@ -8,8 +8,9 @@
 
 /* all */
 
+.swiper-wrapper,
 .swiper-slide {
-    transition-delay: 500;
+    transition-delay: 700;
 }
 
 body {
