@@ -8,6 +8,10 @@
 
 /* all */
 
+.swiper-slide {
+    transition-delay: 500;
+}
+
 body {
     color: #444444;
     letter-spacing: -0.02em;

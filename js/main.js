@@ -16,6 +16,9 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.top_search').classList.toggle('on');
     });
 
+
+
+
     window.addEventListener('scroll', () => {
         let SCT = window.scrollY;
         SCT > 0
@@ -24,30 +27,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    const slideDots = document.querySelectorAll('.slide_dots li');
+
     const MAINSLIDE = new Swiper('.main_slider', {
         loop: true,
+        slideActiveClass: 'on', // .swiper-slide-active 대신 .on을 쓸거임...
         on: {
-            init: function () {
-                console.log(this.slides.length - 2);
-                const current = document.querySelector('.swiper-slide-active');
-                current.classList.add('on');
+            slideChangeTransitionEnd: function () {
+                let count = this.realIndex; // 0 1 2
+                slideDots.forEach(it => it.classList.remove('on'))
+                slideDots[count].classList.add('on');
                 document.querySelector('.main_slider_num').innerHTML = (this.realIndex + 1) + " / <span>" + (this.slides.length - 2);
             }
         }
-    });
-
-    const tatalslide = document.querySelectorAll('.swiper-slide');
-    const slideDots = document.querySelectorAll('.slide_dots li');
-
-    MAINSLIDE.on('slideChangeTransitionEnd', function () {
-        const current = document.querySelector('.swiper-slide-active');
-        tatalslide.forEach(it => it.classList.remove('on'));
-        current.classList.add('on')
-        console.log(tatalslide, current, this.realIndex);
-        let count = this.realIndex; // 0 1 2
-        slideDots.forEach(it => it.classList.remove('on'))
-        slideDots[count].classList.add('on');
-        document.querySelector('.main_slider_num').innerHTML = (this.realIndex + 1) + " / <span>" + (this.slides.length - 2);
     });
 
     document.querySelector('.slide_handler .next').addEventListener('click', () => {
