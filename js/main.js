@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const MAINSLIDE = new Swiper('.main_slider', {
         loop: true,
         on: {
-            slideChangeTransitionEnd: function () {
+            init: function () {
                 console.log(this.slides.length - 2);
                 const current = document.querySelector('.swiper-slide-active');
                 current.classList.add('on');
