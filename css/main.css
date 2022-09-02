@@ -51,6 +51,14 @@ body {
     margin: 0 0 40px 0;
 }
 
+.sc a.btn_s01 {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid #008850;
+    color: #008850;
+    font-size: 13px;
+}
+
 
 .Wrap {}
 
@@ -481,4 +489,64 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.5);
     margin: 0 0 0 15px;
     vertical-align: -0.2em;
+}
+
+.MainContent .inner .thumb {
+    overflow: hidden;
+    margin: 0 0 40px 0;
+}
+
+.MainContent .inner figure img {
+    transition: 0.4s;
+}
+
+.MainContent .inner figure:hover img {
+    transform: scale(1.2);
+}
+
+.MainContent .inner .des {
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+}
+
+.MainContent .inner .des::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -60px;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: #008850;
+}
+
+.MainContent .inner p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.45;
+    margin: 0 0 20px 0;
+}
+
+.Portfolio {
+    text-align: left;
+    background: url(../assets/section1_bg.jpg) repeat-x;
+}
+
+.Portfolio .wrap_port {
+    display: flex;
+    gap: 50px;
+    height: 600px;
+    width: calc((100% - 1200px) / 2 + 1200px);
+    margin: 0 0 0 auto;
+}
+
+.Portfolio .wrap_port .left {
+    width: 400px;
+}
+
+.Portfolio .wrap_port .right {
+    width: calc(100% - 400px);
+    background: #f00;
 }
