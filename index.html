@@ -420,6 +420,15 @@
                     mute: 1,
                 },
                 videoId: 'raw3Nu0_mBQ',
+                events: {
+                    // 'onReady': onPlayerReady,
+                    onStateChange:
+                        function (e) {
+                            if (e.data === YT.PlayerState.ENDED) {
+                                player.playVideo();
+                            }
+                        }
+                }
             });
         }
 
