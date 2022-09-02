@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .inner {
+            width: 500px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            line-height: 80px;
+            text-align: center;
+        }
+
+        .inner li~li {
+            border-left: 1px solid #ddd;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex>li {
+            flex: 1;
+        }
+
+        .inlineBlock>li {
+            display: inline-block;
+            padding: 0 10px;
+        }
+
+        .table {
+            display: table;
+        }
+
+        .table>li {
+            display: table-cell;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="inner flex">
+        <li><a href="">menu01</a></li>
+        <li><a href="">menu02</a></li>
+        <li><a href="">menu03xxxx</a></li>
+        <li><a href="">menu04</a></li>
+        <li><a href="">menu05</a></li>
+    </ul>
+    <ul class="inner inlineBlock">
+        <li><a href="">menu01</a></li>
+        <li><a href="">menu02</a></li>
+        <li><a href="">menu03xxxx</a></li>
+        <li><a href="">menu04</a></li>
+        <li><a href="">menu05</a></li>
+    </ul>
+    <ul class="inner table">
+        <li><a href="">menu01</a></li>
+        <li><a href="">menu02</a></li>
+        <li><a href="">menu03xxxx</a></li>
+        <li><a href="">menu04</a></li>
+        <li><a href="">menu05</a></li>
+    </ul>
+    <ul class="inner grid">
+        <li><a href="">menu01</a></li>
+        <li><a href="">menu02</a></li>
+        <li><a href="">menu03xxxx</a></li>
+        <li><a href="">menu04</a></li>
+        <li><a href="">menu05</a></li>
+    </ul>
+</body>
+
+</html>

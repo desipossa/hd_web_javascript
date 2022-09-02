@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/slick.css">
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .inner {
+            width: 1200px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            line-height: 80px;
+            text-align: center;
+        }
+
+        .inner li {
+            background: #ff0;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex>li {
+            border: 1px solid #f00;
+        }
+
+        .flex01 {
+            gap: 30px;
+        }
+
+        .flex01>li {
+            /* flex:숫자가 작동하면 슬라디드가 영역 밖으로 커지는 현상이 있음... */
+            flex: 1;
+            /* flex 속성 없이 width만 줘버려도 됌... */
+            /* max-width: 33.333333%; */
+            overflow: hidden;
+            /* overflow로 flex박스 안에 슬라이드를 가둠... 왜 되는지는 몰루~ */
+        }
+
+        .slider figure {
+            background: #f0f;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="inner flex flex01">
+        <li><a href="">menu01</a></li>
+        <li>
+            <div class="slider">
+                <figure>01</figure>
+                <figure>02</figure>
+                <figure>03</figure>
+            </div>
+        </li>
+        <li><a href="">menu03xxxx</a></li>
+    </ul>
+    <script>
+        $('.slider').slick()
+    </script>
+</body>
+
+</html>

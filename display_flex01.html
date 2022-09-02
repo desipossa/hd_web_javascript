@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .inner {
+            width: 500px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            line-height: 80px;
+            text-align: center;
+        }
+
+        .inner li {
+            background: #ff0;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex>li {
+            border: 1px solid #f00;
+        }
+
+        .flex01>li {
+            flex: 1;
+        }
+
+        .flex02 {
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .flex02>li {
+            flex: 1;
+            min-width: 200px;
+            max-width: 235px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="inner flex flex01">
+        <li><a href="">menu01</a></li>
+        <li><a href="">menu02</a></li>
+        <li><a href="">menu03xxxx</a></li>
+        <li><a href="">menu04</a></li>
+        <li><a href="">menu05</a></li>
+    </ul>
+    <ul class="inner flex flex02">
+        <li><a href="">menu01</a></li>
+        <li><a href="">menu02</a></li>
+        <li><a href="">menu03xxxx</a></li>
+        <li><a href="">menu04</a></li>
+        <li><a href="">menu05</a></li>
+    </ul>
+</body>
+
+</html>
