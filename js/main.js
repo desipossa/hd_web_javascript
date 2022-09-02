@@ -23,13 +23,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // window.addEventListener('scroll', () => {
     //     let sct = window.scrollY;
-    //     SEC.forEach(e => {
-    //         let secTop = e.offsetTop;
-    //         let secH = e.clientHeight;
+    //     SEC.forEach(ele => {
+    //         let secTop = ele.offsetTop;
+    //         let secH = ele.clientHeight;
     //         if (sct > secTop - (WT - secH) / 2 - 200) {
-    //             e.classList.add('on');
+    //             ele.classList.add('on');
     //         };
-    //         // sct > secTop - (WT-secH) / 2 - 200 ? e.classList.add('on') : e.classList.remove('on');
+    //         // sct > secTop - (WT-secH) / 2 - 200 ? ele.classList.add('on') : e.classList.remove('on');
     //     });
     // });
 
@@ -59,12 +59,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.querySelector('.slide_handler .next').addEventListener('click', () => {
+    document.querySelector('.MainVisual .slide_handler .next').addEventListener('click', () => {
         MAINSLIDE.slideNext();
     });
-    document.querySelector('.slide_handler .prev').addEventListener('click', () => {
+    document.querySelector('.MainVisual .slide_handler .prev').addEventListener('click', () => {
         MAINSLIDE.slidePrev();
     });
+
 
     slideDots.forEach((it, idx) => {
         it.addEventListener('click', () => {
@@ -72,6 +73,72 @@ window.addEventListener('DOMContentLoaded', () => {
             MAINSLIDE.slideTo(idx + 1, 600)
         })
     });
+
+    const PRS = new Swiper('.portfolio_right_slide', {
+        loop: true,
+        slidesPerView: 5,
+        spaceBetween: 30,
+    });
+
+
+    const PLS = new Swiper('.portfolio_left_slide', {
+        loop: true,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true
+        },
+    });
+
+
+
+    document.querySelector('.Portfolio .slide_handler .next').addEventListener('click', () => {
+        PLS.slideNext();
+        PRS.slideNext();
+    });
+    document.querySelector('.Portfolio .slide_handler .prev').addEventListener('click', () => {
+        PLS.slidePrev();
+        PRS.slidePrev();
+    });
+
+    PLS.controller.control = PRS;
+    PRS.controller.control = PLS;
+
+    //출처: https://www.biew.co.kr/entry/Swiper-슬라이드-Swiper-2개-연동과-제어Controller [웹퍼블리싱 - 퍼블리싱 이야기 맑은커뮤니케이션:티스토리]
+    //centeredSlides: true,
+
+    const SCBOX = document.querySelectorAll('.Solution .content_box>div');
+
+    const SCS = new Swiper('.Solution .center_slider', {
+        loop: true,
+        // slidesPerView: 2,
+        spaceBetween: 100,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        //width: 1200,
+        slideActiveClass: 'on', // .swiper-slide-active 대신 .on을 쓸거임...
+        on: {
+            slideChangeTransitionEnd: function () {
+                let count = this.realIndex; // 0 1 2 3 4 
+                SCBOX.forEach(it => it.classList.remove('on'))
+                SCBOX[count].classList.add('on');
+                document.querySelector('.solution_slider_num').innerHTML = "0" + (this.realIndex + 1) + "<span>  / 0" + SCBOX.length;
+            }
+        }
+
+    });
+
+
+    document.querySelector('.Solution .slide_handler .next').addEventListener('click', () => {
+        SCS.slideNext();
+    });
+    document.querySelector('.Solution .slide_handler .prev').addEventListener('click', () => {
+        SCS.slidePrev();
+    });
+
+
+
+
+
 
 
 
