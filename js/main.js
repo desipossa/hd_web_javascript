@@ -51,7 +51,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const MAINSLIDE = new Swiper('.main_slider', {
         loop: true,
+        // parallax: true,
+        // //centeredSlides: true,
+        //speed: 1000,
         slideActiveClass: 'on', // .swiper-slide-active 대신 .on을 쓸거임...
+
         on: {
             slideChangeTransitionEnd: function () {
                 let count = this.realIndex; // 0 1 2
@@ -95,13 +99,13 @@ window.addEventListener('DOMContentLoaded', () => {
         fadeEffect: {
             crossFade: true
         },
+
     });
 
     PRS.controller.control = PLS;
 
     document.querySelector('.Portfolio .slide_handler .next').addEventListener('click', () => {
         PRS.slideNext();
-
     });
     document.querySelector('.Portfolio .slide_handler .prev').addEventListener('click', () => {
         PRS.slidePrev();
