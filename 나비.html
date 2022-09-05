@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0e070e;
+            color: #f5f5f5;
+            height: 100vh;
+        }
+
+        .navi_container {
+            position: relative;
+            width: 1200px;
+            height: 490px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: url(./assets/girl.png);
+        }
+
+        .navi_move {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100px;
+            animation: navi_move 5s linear both;
+        }
+
+        .navi_move img {
+            max-width: 100%;
+        }
+
+        .navi {
+            animation: navi 1s infinite;
+        }
+
+        @keyframes navi {
+            0% {
+                transform: scaleX(1);
+            }
+
+            50% {
+                transform: scaleX(0);
+            }
+
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes navi_move {
+            0% {
+                transform: translate(0, 0) rotate(30deg);
+            }
+
+            10% {
+                transform: translate(100px, -100px) rotate(30deg);
+            }
+
+            20% {
+                transform: translate(200px, -120px) rotate(35deg);
+            }
+
+            30% {
+                transform: translate(300px, -140px) rotate(45deg);
+            }
+
+            40% {
+                transform: translate(400px, -160px) rotate(40deg);
+            }
+
+            50% {
+                transform: translate(500px, -180px) rotate(45deg);
+            }
+
+            60% {
+                transform: translate(600px, -200px) rotate(60deg);
+            }
+
+            70% {
+                transform: translate(700px, -220px) rotate(40deg);
+            }
+
+            80% {
+                transform: translate(800px, -240px) rotate(20deg);
+            }
+
+            90% {
+                transform: translate(1000px, -280px) rotate(10deg);
+            }
+
+            100% {
+                transform: translate(900px, -450px) rotate(-30deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="navi_container">
+        <div class="navi_move">
+            <div class="navi">
+                <img src="./assets/navi.png" alt="">
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
