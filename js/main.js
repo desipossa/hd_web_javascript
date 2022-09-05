@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 let count = this.realIndex; // 0 1 2
                 slideDots.forEach(it => it.classList.remove('on'))
                 slideDots[count].classList.add('on');
-                document.querySelector('.main_slider_num').innerHTML = (this.realIndex + 1) + " / <span>" + (this.slides.length - 2);
+                document.querySelector('.main_slider_num').innerHTML = "0" + (this.realIndex + 1) + " / <span>0" + (this.slides.length - 2);
             }
         }
     });
