@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <script src="./js/swiper-bundle.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .ipad-slider {
+            display: flex;
+        }
+
+
+        .quote-slider-wrapper {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .quote-slider {
+            height: 100vh;
+        }
+
+        .quote-text-wrap {
+            display: flex;
+            height: 100%;
+        }
+
+        .quote-text {
+            max-width: 500px;
+            align-self: center;
+            margin: 0 10%;
+            font-size: 24px;
+        }
+
+        .quote-text {
+            transition: all 0.3s;
+        }
+
+        .swiper-slide.swiper-slide-next .quote-text,
+        .swiper-slide.swiper-slide-prev .quote-text {
+            opacity: 0;
+        }
+
+        .swiper-slide.swiper-slide-active .quote-text {
+            opacity: 1;
+        }
+
+
+
+        .image-slider-wrapper {
+            position: relative;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+            background-color: #f1f1f1;
+        }
+
+        .image-slider {
+            height: 100vh;
+        }
+
+        .swiper-slide {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swiper-slide-inner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ipad-slider">
+
+        <div class="quote-slider-wrapper">
+            <div class="swiper-container quote-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="quote-text-wrap">
+                            <div class="quote-text">
+                                Harry Potter is a series of fantasy literature written by British author J. K. Rowling.
+                                The novels chronicle the life of a young wizard, Harry Potter, and his friends Hermione
+                                Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and
+                                Wizardry.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="quote-text-wrap">
+                            <div class="quote-text">
+                                Jason Bourne is a fictional character and the protagonist of a series of novels by
+                                Robert Ludlum and subsequent film adaptations. He first appeared in the novel The Bourne
+                                Identity (1980), which was adapted for television in 1988. Chiang Mai sometimes written
+                                as "Chiengmai" or "Chiangmai", is the largest and most culturally significant city in
+                                Northern Thailand.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="quote-text-wrap">
+                            <div class="quote-text">
+                                Chiang Mai sometimes written as "Chiengmai" or "Chiangmai", is the largest and most
+                                culturally significant city in Northern Thailand.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="image-slider-wrapper">
+            <div class="swiper-container image-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-inner" data-swiper-parallax="50%">
+                            <img class="swiper-lazy" src="https://source.unsplash.com/gOApUyqOo-c/20x10"
+                                data-src="https://source.unsplash.com/gOApUyqOo-c/1200x900" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-inner" data-swiper-parallax="50%">
+                            <img class="swiper-lazy" src="https://source.unsplash.com/Rcs5zylYqMc/20x10"
+                                data-src="https://source.unsplash.com/Rcs5zylYqMc/1200x900" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper-slide-inner" data-swiper-parallax="50%">
+                            <img class="swiper-lazy" src="https://source.unsplash.com/vXPF8MmN2FA/20x10"
+                                data-src="https://source.unsplash.com/vXPF8MmN2FA/1200x900" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+    </div>
+    <script>
+        var quoteSwiper = new Swiper('.quote-slider', {
+            direction: "vertical",
+            effect: "slide",
+            //autoHeight: true,
+            loop: false, // Not recommended to enable!!!
+            allowTouchMove: false,
+        });
+
+
+        var $Speed = 1000;
+
+        var imageSwiper = new Swiper('.image-slider', {
+            mousewheel: true,
+            speed: $Speed,
+            loop: false, // Not recommended to enable!!!
+            longSwipesRatio: 0.01,
+            followFinger: false,
+            grabCursor: true,
+            watchSlidesProgress: true,
+            parallax: true,
+            lazy: {
+                loadPrevNext: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+
+        imageSwiper.controller.control = this.quoteSwiper;
+
+    </script>
+</body>
+
+</html>
