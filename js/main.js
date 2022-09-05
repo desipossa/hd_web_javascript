@@ -233,7 +233,9 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.popup').style.display = 'none';
     });
 
-
+    document.querySelector('.popup').addEventListener('wheel', e => {
+        e.preventDefault();
+    })
 
 
 
